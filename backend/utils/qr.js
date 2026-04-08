@@ -1,8 +1,8 @@
 import QRCode from "qrcode";
 
 export const generateQR = async (itemId) => {
-  const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";  // Fallback for safety
-  return await QRCode.toDataURL(`${process.env.FRONTEND_URL}/claim/${itemId}`);
+  const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+  return await QRCode.toDataURL(`${frontendUrl}/claim/${itemId}`);
 };
 
 export const generateQRCode = async (itemId) => {
