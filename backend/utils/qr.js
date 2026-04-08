@@ -1,17 +1,18 @@
 import QRCode from "qrcode";
 
 export const generateQR = async (itemId) => {
-  return await QRCode.toDataURL(`claim-item-${itemId}`);
+  const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";  // Fallback for safety
+  return await QRCode.toDataURL(`${process.env.FRONTEND_URL}/claim/${itemId}`);
 };
 
 export const generateQRCode = async (itemId) => {
   try {
     const qrDataUrl = await generateQR(itemId);
     return qrDataUrl;
-    } catch (err) {
-        console.error("QR code generation error:", err);
-        throw new Error("Failed to generate QR code");
-    }
+  } catch (err) {
+    console.error("QR code generation error:", err);
+    throw new Error("Failed to generate QR code");
+  }
 };
 
 export default generateQRCode;

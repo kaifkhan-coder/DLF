@@ -9,6 +9,7 @@ import itemRoutes from "./routes/items.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
 import UserRoutes from "./routes/userRoutes.js";
 import notificationRoutes from "./routes/notification.routes.js";
+import ClaimRoutes from "./routes/claim.routes.js";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use("/api/items", itemRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/users", UserRoutes);
 app.use("/api/notifications", notificationRoutes);
+app.use("/api/claims", ClaimRoutes);
 app.use("/uploads", express.static("uploads"));
 
 mongoose
